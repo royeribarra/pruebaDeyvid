@@ -15,6 +15,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+  <script>
+    $(document).ready(function(){
+      var regiones = [];
+      let request = $.ajax({
+        method: "GET",
+        url: "http://localhost/pruebaDeyvid/peticiones/getRegiones.php"
+      });
+      
+      request.done(function(data) {
+        console.log("regiones", data);
+        regiones = data;
+      });
+
+      request.fail(function() {
+        console.log("Me ejecute mal");
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function(){
+      let request = $.ajax({
+        method: "GET",
+        url: "http://localhost/pruebaDeyvid/peticiones/getCandidatos.php"
+      });
+      
+      request.done(function(data) {
+        console.log(data)
+        <?php
+          $candidatos = `<script> document.writeln(data); </script>`;
+        ?>
+      });
+
+      request.fail(function() {
+        console.log("Me ejecute mal");
+      });
+    });
+  </script>
       <section class="form-register">
         <h4>Formulario de Registro de Votacion</h4> 
         <form id="myform" class="cmxform">
@@ -30,7 +67,9 @@
               required
             >
           </div>
-        
+          <?php
+            $amigos = ['royer', 'victor'];
+          ?>
           <div class="form-group">
             <label for="alias">Alias</label>
             <input 
@@ -91,6 +130,19 @@
           <div class="form-group">
             <label for="candidato">Elige tu Candidato</label>
             <select class="controls form-control" id="candidato" name="candidato">
+              <?php foreach ($candidatos as $key => $candidato) 
+              {
+              ?>
+
+                <option value=<?php echo $candidato[0];?> >
+                  <?php echo $candidato; ?>
+                </option>
+
+              <?php
+              } 
+              ?>
+                
+              
               <option value="Cerrón" selected>Cerrón</option>
               <option value="Castillo">Castillo</option>
               <option value="Keiko">Keiko</option>
@@ -128,42 +180,7 @@
         </form>
       </section>
 
-    <script>
-      $(document).ready(function(){
-        var regiones = [];
-        let request = $.ajax({
-          method: "GET",
-          url: "http://localhost/pruebaDeyvid/peticiones/getRegiones.php"
-        });
-        
-        request.done(function(data) {
-          console.log("regiones", data);
-          regiones = data;
-        });
-
-        request.fail(function() {
-          console.log("Me ejecute mal");
-        });
-      });
-    </script>
-    <script>
-      $(document).ready(function(){
-        var candidatos = [];
-        let request = $.ajax({
-          method: "GET",
-          url: "http://localhost/pruebaDeyvid/peticiones/getCandidatos.php"
-        });
-        
-        request.done(function(data) {
-          console.log("candidatos", data);
-          candidatos = data;
-        });
-
-        request.fail(function() {
-          console.log("Me ejecute mal");
-        });
-      });
-    </script>
+    
     <script>
       $('#enviar').click(function(e){
         e.preventDefault();
