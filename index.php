@@ -130,7 +130,38 @@
 
     <script>
       $(document).ready(function(){
+        var regiones = [];
+        let request = $.ajax({
+          method: "GET",
+          url: "http://localhost/pruebaDeyvid/peticiones/getRegiones.php"
+        });
+        
+        request.done(function(data) {
+          console.log("regiones", data);
+          regiones = data;
+        });
 
+        request.fail(function() {
+          console.log("Me ejecute mal");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        var candidatos = [];
+        let request = $.ajax({
+          method: "GET",
+          url: "http://localhost/pruebaDeyvid/peticiones/getCandidatos.php"
+        });
+        
+        request.done(function(data) {
+          console.log("candidatos", data);
+          candidatos = data;
+        });
+
+        request.fail(function() {
+          console.log("Me ejecute mal");
+        });
       });
     </script>
     <script>
@@ -188,7 +219,7 @@
           const razon = 1;
           var request = $.ajax({
             method: "POST",
-            url: "http://localhost/pruebaDeyvid/peticionPrueba.php",
+            url: "http://localhost/pruebaDeyvid/peticiones/guardarVoto.php",
             data: { 
               nombresApellidos: nombresApellidos,
               alias: alias,
