@@ -5,7 +5,7 @@
         {
             $host = "localhost";
             $dbname = "votaciones";
-            $username = "root";
+            $username = "postgres";
             $password = "secret";
 
             try {

@@ -5,7 +5,7 @@
         function __construct()
         {
             $this->servername = "localhost";
-            $this->username = "root";
+            $this->username = "postgres";
             $this->password = "secret";
             $this->dbname = "votaciones";
             $this->port = "5433";

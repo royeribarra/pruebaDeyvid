@@ -52,6 +52,11 @@
       });
     });
   </script>
+  <?php
+    include("peticiones/candidatos.php");
+    $newObj = new Candidatos();
+    $amigos = $newObj->getCandidatos();
+  ?>
       <section class="form-register">
         <h4>Formulario de Registro de Votacion</h4> 
         <form id="myform" class="cmxform">
@@ -67,9 +72,6 @@
               required
             >
           </div>
-          <?php
-            $amigos = ['royer', 'victor'];
-          ?>
           <div class="form-group">
             <label for="alias">Alias</label>
             <input 
@@ -130,23 +132,17 @@
           <div class="form-group">
             <label for="candidato">Elige tu Candidato</label>
             <select class="controls form-control" id="candidato" name="candidato">
-              <?php foreach ($candidatos as $key => $candidato) 
+              <?php foreach ($amigos as $key => $candidato) 
               {
               ?>
 
-                <option value=<?php echo $candidato[0];?> >
-                  <?php echo $candidato; ?>
+                <option value=<?php echo $candidato['id'];?> >
+                  <?php echo $candidato['nombre']; ?>
                 </option>
 
               <?php
               } 
               ?>
-                
-              
-              <option value="Cerrón" selected>Cerrón</option>
-              <option value="Castillo">Castillo</option>
-              <option value="Keiko">Keiko</option>
-              <option value="Salazar">Salazar</option>
             </select>
           </div>
 
