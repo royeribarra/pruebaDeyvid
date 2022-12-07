@@ -8,296 +8,208 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-  <?php
-    include_once("conexion.php");
-    Conexion::ConexionDB();
-  ?>
-    
-    
-    
-      
-
       <section class="form-register">
-        <h4>Formulario de Registro de Votacion</h4>
+        <h4>Formulario de Registro de Votacion</h4> 
+        <form id="myform" class="cmxform">
+          <div class="form-group">
+            <label for="nombresApellidos">Nombres y apellidos</label>
+            
+            <input 
+              class="controls form-control"  
+              type="text" 
+              name="nombresApellidos" 
+              id="nombresApellidos" 
+              placeholder="Nombres y Apellidos"
+              required
+            >
+          </div>
+        
+          <div class="form-group">
+            <label for="alias">Alias</label>
+            <input 
+              class="controls form-control" 
+              type="text" 
+              name="alias" 
+              id="alias" 
+              placeholder="Alias"
+              required
+              >
+          </div>
 
-          <input 
-          class="controls"  
-          type="text" 
-          name="nombresApellidos" 
-          id="nombresApellidos" 
-          placeholder="Nombres y Apellidos">
+          <div class="form-group">
+            <label for="rut">Rut</label>
+            <input 
+              class="controls form-control" 
+              type="text" 
+              name="rut" 
+              id="rut" 
+              placeholder="Rut"
+              required
+              >
+          </div>
 
-          <input 
-          class="controls" 
-          type="text" 
-          name="alias" 
-          id="alias" 
-          placeholder="Alias">
+          <div class="form-group">
+            <label for="correo">Correo</label>
+            <input 
+              class="controls form-control" 
+              type="email" 
+              name="email" 
+              id="email" 
+              placeholder="Correo"
+              required
+              >
+          </div>
 
-          <input 
-          class="controls" 
-          type="text" 
-          name="rut" 
-          id="rut" 
-          placeholder="Rut">
-
-          <input 
-          class="controls" 
-          type="email" 
-          name="correo" 
-          id="correo" 
-          placeholder="Correo">
-
-          <select class="controls" name="region" id="region" required>
-              <option value="Huancayo">Elige tu Region</option>
+          <div class="form-group">
+            <label for="region">Elige tu región</label>
+            <select class="controls form-control" id="region" name="region">
+              <option value="Huancayo" selected>Elige tu Region</option>
               <option value="Huancayo">Huancayo</option>
               <option value="Chilca">Chilca</option>
               <option value="El Tambo">El Tambo</option>
               <option value="Cajas">Cajas</option>
-          </select>
+            </select>
+          </div>
 
-          <select class="controls" name="comuna" id="comuna" required>
-              <option value="Huancayo">Elige tu Comuna</option>
-              <option value="Las Hualmitas">Las Hualmitas</option>
+          <div class="form-group">
+            <label for="comuna">Elige tu Comuna</label>
+            <select class="controls form-control" id="comuna" name="comuna">
+              <option value="Las Hualmitas" selected>Las Hualmitas</option>
               <option value="San Jacinto">San Jacinto</option>
               <option value="Llochegua">Llochegua</option>
               <option value="San Carlos">San Carlos</option>
-          </select>
-
-          <select class="controls" name="candidato" id="candidato" required>
-              <option value="Huancayo">Elige tu Candidato</option>
-              <option value="Cerrón">Cerrón</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="candidato">Elige tu Candidato</label>
+            <select class="controls form-control" id="candidato" name="candidato">
+              <option value="Cerrón" selected>Cerrón</option>
               <option value="Castillo">Castillo</option>
               <option value="Keiko">Keiko</option>
               <option value="Salazar">Salazar</option>
-          </select>
+            </select>
+          </div>
+
 
           <div class="form-group controls">
             <label for="razon">Como se enteró de nosotros:</label>
             <br>
-            
-            <label for="vehicle1">Web</label>
-            <input class="controls" type="checkbox" id="web" name="web" value="2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="web" value="web">
+              <label class="form-check-label" for="web">Web</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="tv" value="tv">
+              <label class="form-check-label" for="tv">Tv</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="redesSociales" value="redesSociales">
+              <label class="form-check-label" for="redesSociales">Redes sociales</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="amigos" value="amigos">
+              <label class="form-check-label" for="amigos">Amigos</label>
+            </div>
 
-            <label for="vehicle1">Tv</label><br>
-            <input class="controls" type="checkbox" id="tv" name="tv" value="3">
-
-            <label for="vehicle1">Redes sociales</label><br>
-            <input class="controls" type="checkbox" id="redessociales" name="redessociales" value="4">
-
-            <label for="vehicle1">Amigo</label><br>
-            <input class="controls" type="checkbox" id="amigo" name="amigo" value="4">
           </div>   
 
           <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
 
-          <input id="enviar" class="botons" type="submit" value="Enviar">
-
+          
+          <button id="enviar" type="submit" class="botons btn btn-primary">Votar</button>
+        </form>
       </section>
 
-      <!--
-      <form class="cmxform" id="myform" action="#">
-        <fieldset>
-          <div class="form-group">
-            <label for="fname">Nombre y apellido:</label>
-            <br>
-            <input 
-              class="form-control" 
-              type="text" 
-              minlength="4" 
-              id="nombresApellidos" 
-              name="nombresApellidos" 
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="lname">Alias:</label>
-            <br>
-            <input 
-              class="form-control" 
-              type="text" 
-              id="alias" 
-              name="alias"
-            />
-          </div>
-          <div class="form-group">
-            <label for="rut">RUT:</label>
-            <br>
-            <input 
-              class="form-control" 
-              type="text" 
-              id="rut" 
-              name="rut"
-            />
-          </div>
-          <div class="form-group">
-            <label for="lname">Email:</label>
-            <br>
-            <input 
-              class="form-control" 
-              type="text" 
-              id="email" 
-              name="email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="region">Región:</label>
-            <br>
-            <select name="region" id="region" required>
-              <option value="Huancayo">Huancayo</option>
-              <option value="Chilca">Chilca</option>
-              <option value="El Tambo">El Tambo</option>
-              <option value="Cajas">Cajas</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="comuna">Comuna:</label>
-            <br>
-            <select name="comuna" id="comuna" required>
-              <option value="Las Hualmitas">Las Hualmitas</option>
-              <option value="San Jacinto">San Jacinto</option>
-              <option value="Llochegua">Llochegua</option>
-              <option value="San Carlos">San Carlos</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="candidato">Candidato:</label>
-            <br>
-            <select name="candidato" id="candidato" required>
-              <option value="Cerrón">Cerrón</option>
-              <option value="Castillo">Castillo</option>
-              <option value="Keiko">Keiko</option>
-              <option value="Salazar">Salazar</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="razon">Como se enteró de nosotros:</label>
-            <br>
-            <input type="checkbox" id="web" name="razon" value="1">
-            <label for="vehicle1">Web</label>
-            <input type="checkbox" id="tv" name="tv" value="2">
-            <label for="vehicle1">Tv</label><br>
-            <input type="checkbox" id="redesSociales" name="redesSociales" value="3">
-            <label for="vehicle1">Redes sociales</label><br>
-            <input type="checkbox" id="amigo" name="amigo" value="4">
-            <label for="vehicle1">Amigo</label><br>
-          </div>
-        </fieldset>
-      
-        <button id="enviar">Enviar</button>
-      </form>
-      -->
+    <script>
+      $(document).ready(function(){
 
-    
-      
+      });
+    </script>
     <script>
       $('#enviar').click(function(e){
         e.preventDefault();
-        const nombresApellidos = document.getElementById("myform").elements["nombresApellidos"].value;
-        const alias = document.getElementById("myform").elements["alias"].value;
-        const rut = document.getElementById("myform").elements["rut"].value;
-        const email = document.getElementById("myform").elements["email"].value;
-        const region = document.getElementById("myform").elements["region"].value;
-        const comuna = document.getElementById("myform").elements["comuna"].value;
-        const candidato = document.getElementById("myform").elements["candidato"].value;
-        const razon = document.getElementById("myform").elements["razon"].value;
-        console.log(nombresApellidos);
-
-        // $("#myform").validate({
-          
-        //   event: "blur",
-        //   rules: {
-        //     nombresApellidos: {
-        //       required: true,
-        //       minlength: 3
-        //     },
-        //   },
-        //   messages: {
-        //     'nombresApellidos': {
-        //       required: "Por favor ingresa tu nombre",
-        //       minlength: "El nombre debe llevar mas de dos letras raa"
-        //     },
-        //   },
-        //   debug: true,
-        //   errorElement: "label",
-        //   submitHandler: function(form){
-           
-            
-        //     console.log("ejecutando");
-            
-
-        //     request.done(function(data) {
-        //       console.log("Me ejecute correctamente"); // imprimimos la respuesta
-        //     });
-
-        //     request.fail(function() {
-        //       console.log("Me ejecute mal");
-        //     });
-            
-        //   },
-        //   invalidHandler: function(event, validator) {
-        //     // 'this' refers to the form
-        //     var errors = validator.numberOfInvalids();
-        //     if (errors) {
-        //       var message = errors == 1
-        //         ? 'You missed 1 field. It has been highlighted'
-        //         : 'You missed ' + errors + ' fields. They have been highlighted';
-        //       $("div.error span").html(message);
-        //       $("div.error").show();
-        //     } else {
-        //       $("div.error").hide();
-        //     }
-        //   }
-          
-          
-        // });
-        var request = $.ajax({
-          method: "POST",
-          url: "http://localhost/deyvid/peticionPrueba.php",
-          data: { 
-            nombresApellidos: nombresApellidos,
-            alias: alias,
-            rut: rut,
-            email: email,
-            region: region,
-            comuna: comuna,
-            candidato: candidato,
-            razon: razon
+        
+        $("#myform").validate({
+          event: "blur",
+          rules: {
+            nombresApellidos: {
+              required: true
+            },
+            alias:{
+              minlength: 5
+            }
+          },
+          messages: {
+            'nombresApellidos': {
+              required: "Por favor ingresa tu nombre."
+            },
+            alias:{
+              minlength: "El alias debe llevar mas de 5 letras."
+            }
+          },
+          debug: true,
+          errorElement: "label",
+          submitHandler: enviarPeticion(),
+          invalidHandler: function(event, validator) {
+            // 'this' refers to the form
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+              var message = errors == 1
+                ? 'You missed 1 field. It has been highlighted'
+                : 'You missed ' + errors + ' fields. They have been highlighted';
+              $("div.error span").html(message);
+              $("div.error").show();
+            } else {
+              $("div.error").hide();
+            }
           }
+          
+          
         });
         
-
+        function enviarPeticion()
+        {
+          console.log(document.getElementById("myform").elements["nombresApellidos"].value);
+          const nombresApellidos = document.getElementById("myform").elements["nombresApellidos"].value;
+          const alias = document.getElementById("myform").elements["alias"].value;
+          const rut = document.getElementById("myform").elements["rut"].value;
+          const email = document.getElementById("myform").elements["email"].value;
+          const region = document.getElementById("myform").elements["region"].value;
+          const comuna = document.getElementById("myform").elements["comuna"].value;
+          const candidato = document.getElementById("myform").elements["candidato"].value;
+          const razon = 1;
+          var request = $.ajax({
+            method: "POST",
+            url: "http://localhost/pruebaDeyvid/peticionPrueba.php",
+            data: { 
+              nombresApellidos: nombresApellidos,
+              alias: alias,
+              rut: rut,
+              email: email,
+              region: region,
+              comuna: comuna,
+              candidato: candidato,
+              razon: razon
+            }
+          });
         
+          request.done(function(data) {
+            console.log("Me ejecute correctamente"); // imprimimos la respuesta
+          });
+
+          request.fail(function() {
+            console.log("Me ejecute mal");
+          });
+        }
         
-        // function enviarPeticion()
-        // {
-        //   console.log("ejecutando");
-        //   var request = $.ajax({
-        //     method: "POST",
-        //     url: "http://localhost/deyvid/peticionPrueba.php",
-        //     data: { 
-        //       nombresApellidos: nombresApellidos,
-        //       alias: alias,
-        //       rut: rut,
-        //       email: email,
-        //       region: region,
-        //       comuna: comuna,
-        //       candidato: candidato,
-        //       razon: razon
-        //     }
-        //   });
-
-        //   request.done(function(data) {
-        //     console.log("Me ejecute correctamente"); // imprimimos la respuesta
-        //   });
-
-        //   request.fail(function() {
-        //     console.log("Me ejecute mal");
-        //   });
-        // }
       });
     </script>
 </body>
