@@ -15,8 +15,90 @@
     include_once("conexion.php");
     Conexion::ConexionDB();
   ?>
-    <div class=" alert alert-success" style="display: none;" id="alert">&nbsp;</div>
-    <div class="container">
+    
+    
+    
+      
+
+      <section class="form-register">
+        <h4>Formulario de Registro de Votacion</h4>
+
+          <input 
+          class="controls"  
+          type="text" 
+          name="nombresApellidos" 
+          id="nombresApellidos" 
+          placeholder="Nombres y Apellidos">
+
+          <input 
+          class="controls" 
+          type="text" 
+          name="alias" 
+          id="alias" 
+          placeholder="Alias">
+
+          <input 
+          class="controls" 
+          type="text" 
+          name="rut" 
+          id="rut" 
+          placeholder="Rut">
+
+          <input 
+          class="controls" 
+          type="email" 
+          name="correo" 
+          id="correo" 
+          placeholder="Correo">
+
+          <select class="controls" name="region" id="region" required>
+              <option value="Huancayo">Elige tu Region</option>
+              <option value="Huancayo">Huancayo</option>
+              <option value="Chilca">Chilca</option>
+              <option value="El Tambo">El Tambo</option>
+              <option value="Cajas">Cajas</option>
+          </select>
+
+          <select class="controls" name="comuna" id="comuna" required>
+              <option value="Huancayo">Elige tu Comuna</option>
+              <option value="Las Hualmitas">Las Hualmitas</option>
+              <option value="San Jacinto">San Jacinto</option>
+              <option value="Llochegua">Llochegua</option>
+              <option value="San Carlos">San Carlos</option>
+          </select>
+
+          <select class="controls" name="candidato" id="candidato" required>
+              <option value="Huancayo">Elige tu Candidato</option>
+              <option value="Cerrón">Cerrón</option>
+              <option value="Castillo">Castillo</option>
+              <option value="Keiko">Keiko</option>
+              <option value="Salazar">Salazar</option>
+          </select>
+
+          <div class="form-group controls">
+            <label for="razon">Como se enteró de nosotros:</label>
+            <br>
+            
+            <label for="vehicle1">Web</label>
+            <input class="controls" type="checkbox" id="web" name="web" value="2">
+
+            <label for="vehicle1">Tv</label><br>
+            <input class="controls" type="checkbox" id="tv" name="tv" value="3">
+
+            <label for="vehicle1">Redes sociales</label><br>
+            <input class="controls" type="checkbox" id="redessociales" name="redessociales" value="4">
+
+            <label for="vehicle1">Amigo</label><br>
+            <input class="controls" type="checkbox" id="amigo" name="amigo" value="4">
+          </div>   
+
+          <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
+
+          <input id="enviar" class="botons" type="submit" value="Enviar">
+
+      </section>
+
+      <!--
       <form class="cmxform" id="myform" action="#">
         <fieldset>
           <div class="form-group">
@@ -107,7 +189,10 @@
       
         <button id="enviar">Enviar</button>
       </form>
-    </div>
+      -->
+
+    
+      
     <script>
       $('#enviar').click(function(e){
         e.preventDefault();
